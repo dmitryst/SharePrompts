@@ -11,7 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SharePrompts.SharedKernel\SharePrompts.SharedKernel.csproj" />
+    <ProjectReference Include="..\SharePrompts.SharedKernel\SharePrompts.SharedKernel.csproj" />
   </ItemGroup>
 
 </Project>
