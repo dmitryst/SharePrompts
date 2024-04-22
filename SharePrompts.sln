@@ -35,7 +35,7 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharePrompts.UnitTests", "t
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "SharePrompts.UseCases", "src\SharePrompts.UseCases\SharePrompts.UseCases.csproj", "{B74A78FF-B79E-4C38-A9C7-084A90990CAD}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePrompts.SharedKernel", "SharePrompts.SharedKernel\SharePrompts.SharedKernel.csproj", "{A4A52A27-823C-43B9-983F-607AC54EB79B}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "SharePrompts.SharedKernel", "src\SharePrompts.SharedKernel\SharePrompts.SharedKernel.csproj", "{A4A52A27-823C-43B9-983F-607AC54EB79B}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
