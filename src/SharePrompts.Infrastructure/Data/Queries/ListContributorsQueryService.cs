@@ -1,6 +1,7 @@
 ﻿using SharePrompts.UseCases.Contributors;
 using SharePrompts.UseCases.Contributors.List;
 using Microsoft.EntityFrameworkCore;
+using SharePrompts.Core.ContributorAggregate;
 
 namespace SharePrompts.Infrastructure.Data.Queries;
 
@@ -11,11 +12,15 @@ public class ListContributorsQueryService(AppDbContext _db) : IListContributorsQ
 
   public async Task<IEnumerable<ContributorDTO>> ListAsync()
   {
-    // NOTE: This will fail if testing with EF InMemory provider!
-    var result = await _db.Database.SqlQuery<ContributorDTO>(
-      $"SELECT Id, Name, PhoneNumber_Number AS PhoneNumber FROM Contributors") // don't fetch other big columns
+    var result = await _db.Contributors
+      .Select(c => new ContributorDTO(c.Id, c.Name, ExtractPhoneNumber(c)))
       .ToListAsync();
 
     return result;
+  }
+
+  private static string? ExtractPhoneNumber(Contributor c)
+  {
+    return c.PhoneNumber?.Number ?? string.Empty;
   }
 }
