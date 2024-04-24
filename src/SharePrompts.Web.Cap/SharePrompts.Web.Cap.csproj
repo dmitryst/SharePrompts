@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Remove="Posts\CreatePostRequest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="Posts\Create\CreatePostRequest.cs" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="FastEndpoints" />
+    <PackageReference Include="MediatR" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharePrompts.UseCases.Cap\SharePrompts.UseCases.Cap.csproj" />
+  </ItemGroup>
+
+</Project>

@@ -1,0 +1,19 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Ardalis.Result" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SharePrompts.Core.Cap\SharePrompts.Core.Cap.csproj" />
+    <ProjectReference Include="..\SharePrompts.Core\SharePrompts.Core.csproj" />
+    <ProjectReference Include="..\SharePrompts.SharedKernel\SharePrompts.SharedKernel.csproj" />
+  </ItemGroup>
+
+</Project>

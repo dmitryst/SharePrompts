@@ -12,6 +12,8 @@ using FastEndpoints.Swagger;
 using MediatR;
 using Serilog;
 using Serilog.Extensions.Logging;
+using SharePrompts.Core.Cap.PostAggregate;
+using SharePrompts.UseCases.Cap.Posts.Create;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -104,7 +106,10 @@ void ConfigureMediatR()
   var mediatRAssemblies = new[]
 {
   Assembly.GetAssembly(typeof(Contributor)), // Core
-  Assembly.GetAssembly(typeof(CreateContributorCommand)) // UseCases
+  Assembly.GetAssembly(typeof(CreateContributorCommand)), // UseCases
+
+  Assembly.GetAssembly(typeof(Post)), // Core.Cap
+  Assembly.GetAssembly(typeof(CreatePostCommand)) // UsesCases.Cap
 };
   builder.Services.AddMediatR(cfg => cfg.RegisterServicesFromAssemblies(mediatRAssemblies!));
   builder.Services.AddScoped(typeof(IPipelineBehavior<,>), typeof(LoggingBehavior<,>));

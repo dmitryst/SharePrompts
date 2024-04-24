@@ -19,7 +19,8 @@ public static class InfrastructureServiceExtensions
     ConfigurationManager config,
     ILogger logger)
   {
-    string? connectionString = config.GetConnectionString("PostgresConnection");
+    // choose connection string (DefaultConnection or CustomConnection)
+    string? connectionString = config.GetConnectionString("CustomConnection");
     Guard.Against.Null(connectionString);
     services.AddApplicationDbContext(connectionString);
 

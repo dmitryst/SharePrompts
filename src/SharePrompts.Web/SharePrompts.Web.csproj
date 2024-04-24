@@ -21,8 +21,9 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\SharePrompts.Infrastructure\SharePrompts.Infrastructure.csproj" />
+    <ProjectReference Include="..\SharePrompts.Infrastructure.Cap\SharePrompts.Infrastructure.Cap.csproj" />
     <ProjectReference Include="..\SharePrompts.UseCases\SharePrompts.UseCases.csproj" />
+    <ProjectReference Include="..\SharePrompts.Web.Cap\SharePrompts.Web.Cap.csproj" />
   </ItemGroup>
 
 </Project>
