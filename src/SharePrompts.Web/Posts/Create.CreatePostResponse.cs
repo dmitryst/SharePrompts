@@ -1,4 +1,5 @@
-﻿namespace SharePrompts.Web.Cap.Posts.Create;
+﻿namespace SharePrompts.Web.Posts;
+
 public class CreatePostResponse(int id, string title, string text, string? tag)
 {
   public int Id { get; set; } = id;

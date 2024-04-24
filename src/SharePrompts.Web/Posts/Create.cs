@@ -2,13 +2,13 @@
 using MediatR;
 using SharePrompts.UseCases.Cap.Posts.Create;
 
-namespace SharePrompts.Web.Cap.Posts.Create;
+namespace SharePrompts.Web.Posts;
 
-public class CreateEndpoint(IMediator _mediator) : Endpoint<CreatePostRequest, CreatePostResponse>
+public class Create(IMediator _mediator) : Endpoint<CreatePostRequest, CreatePostResponse>
 {
   public override void Configure()
   {
-    Post("/posts");
+    Post(CreatePostRequest.Route);
     AllowAnonymous();
   }
 

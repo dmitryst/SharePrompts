@@ -14,6 +14,7 @@ using Serilog;
 using Serilog.Extensions.Logging;
 using SharePrompts.Core.Cap.PostAggregate;
 using SharePrompts.UseCases.Cap.Posts.Create;
+using SharePrompts.Infrastructure.Cap;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -44,6 +45,7 @@ builder.Services.AddFastEndpoints()
 ConfigureMediatR();
 
 builder.Services.AddInfrastructureServices(builder.Configuration, microsoftLogger);
+builder.Services.AddCapInfrastructureServices(builder.Configuration, microsoftLogger);
 
 if (builder.Environment.IsDevelopment())
 {
