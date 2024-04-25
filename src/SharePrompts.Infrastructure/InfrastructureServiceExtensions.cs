@@ -24,8 +24,8 @@ public static class InfrastructureServiceExtensions
     Guard.Against.Null(connectionString);
     services.AddApplicationDbContext(connectionString);
 
-    //services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
-    //services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
+    services.AddScoped(typeof(IRepository<>), typeof(EfRepository<>));
+    services.AddScoped(typeof(IReadRepository<>), typeof(EfRepository<>));
     services.AddScoped<IListContributorsQueryService, ListContributorsQueryService>();
     services.AddScoped<IDeleteContributorService, DeleteContributorService>();
 

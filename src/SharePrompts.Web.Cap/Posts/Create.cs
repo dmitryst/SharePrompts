@@ -2,7 +2,7 @@
 using MediatR;
 using SharePrompts.UseCases.Cap.Posts.Create;
 
-namespace SharePrompts.Web.Posts;
+namespace SharePrompts.Web.Cap.Posts;
 
 public class Create(IMediator _mediator) : Endpoint<CreatePostRequest, CreatePostResponse>
 {

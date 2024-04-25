@@ -15,6 +15,7 @@ using Serilog.Extensions.Logging;
 using SharePrompts.Core.Cap.PostAggregate;
 using SharePrompts.UseCases.Cap.Posts.Create;
 using SharePrompts.Infrastructure.Cap;
+using SharePrompts.SharedKernel.Extensions;
 
 var logger = Log.Logger = new LoggerConfiguration()
   .Enrich.FromLogContext()
@@ -36,15 +37,22 @@ builder.Services.Configure<CookiePolicyOptions>(options =>
   options.MinimumSameSitePolicy = SameSiteMode.None;
 });
 
-builder.Services.AddFastEndpoints()
-                .SwaggerDocument(o =>
-                {
-                  o.ShortSchemaNames = true;
-                });
+builder.Services.AddFastEndpoints(options =>
+  options.Assemblies = new[]
+  {
+    Assembly.GetAssembly(typeof(Program)).ThrowIfNull(), // Web
+    Assembly.GetAssembly(typeof(SharePrompts.Web.Cap.Posts.Create)).ThrowIfNull() // Web.Cap
+  })
+  .SwaggerDocument(o =>
+  {
+    o.ShortSchemaNames = true;
+  });
 
 ConfigureMediatR();
 
 builder.Services.AddInfrastructureServices(builder.Configuration, microsoftLogger);
+
+// зарегистрировать инфраструктурные сервисы, если сборка предназначена для Cap
 builder.Services.AddCapInfrastructureServices(builder.Configuration, microsoftLogger);
 
 if (builder.Environment.IsDevelopment())
